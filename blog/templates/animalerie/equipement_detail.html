@@ -1,0 +1,22 @@
+{% extends 'animalerie/base.html' %}
+{% block content %}
+<div class="page-header">
+    <h9>
+        <a style = "color:rgb(247, 0, 152); font-size: 20pt;
+        text-decoration: none;" href="/">{{ equipement.id_equip }} </a>
+    </h9>
+    <h4>
+    <ul class="list-group">
+        <li class="list-group-item">Disponibilité : {{equipement.disponibilite}}</li>
+        {% for animal in animaux %}
+            {% if animal.lieu.id_equip == equipement.id_equip %}
+            <li class="list-group-item"> occupant(s) : {{animal.id_animal}}</li>
+            {% endif %}
+        {% endfor %}
+        <img src = {{equipement.photo}} width="400" height="300"></img>
+        <button style = "color:black;
+        text-decoration: none;"  onclick="window.location.href='{% url 'animal_list' %}' ">Back</a>
+      </ul>
+    </h4> 
+</div>
+{%endblock%}

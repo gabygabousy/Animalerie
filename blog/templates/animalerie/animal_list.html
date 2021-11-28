@@ -1,0 +1,28 @@
+{% extends 'animalerie/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>Animaux</h2>
+{% for animal in animaux %}
+
+
+    <h3><a style = "color:black;
+                    text-decoration: none;" href="{% url 'animal_detail' id_animal=animal.id_animal %}">{{ animal.id_animal }}</a>
+    <img src = {{animal.photo}} width="400" height="300"></img></h3>
+{%endfor%}
+      </div>
+      <div class="col">
+        <h6>Equipements</h6>
+{% for equipement in equipements %}
+    <h5><a style = "color:black;
+        text-decoration: none;" href="{% url 'equipement_detail' id_equip=equipement.id_equip %}">{{ equipement.id_equip }}</a>
+    <img src = {{equipement.photo}} width="400" height="300"></img></h5>
+{%endfor%}
+      </div>
+    </div>
+  </div>
+
+
+{%endblock%}
